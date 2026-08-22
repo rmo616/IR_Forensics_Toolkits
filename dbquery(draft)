@@ -22,6 +22,12 @@ CREATE TABLE Ingested_Data (
 INSERT INTO Ingested_Data (IOC_Type, IOC_Value, Date_Detected, Descript, Severity_Level, Malware_Category, Offense_Count)
 VALUES 
 ('IP Address', '192.168.1.1', NOW(), 'Phishing attempt', 'High', 'Malware', 5);
+Insert INTO Ingested_Data (IOC_Type, IOC_Value, Date_Detected, Descript, Severity_Level, Malware_Category, Offense_Count)
+VALUES 
+('Domain', 'maliciousdomain.com', NOW(), 'Malware distribution', 'Medium', 'Malware', 3);
+Insert Into Ingested_Data (IOC_Type, IOC_Value, Date_Detected, Descript, Severity_Level, Malware_Category, Offense_Count)
+VALUES 
+('File Hash', 'd41d8cd98f00b204e9800998ecf8427e', NOW(), 'Suspicious file', 'Low', 'Malware', 1);       
 
 '''upload file'''
 LOAD DATA LOCAL INFILE 'pathtofile'
