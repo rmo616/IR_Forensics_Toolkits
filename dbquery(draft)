@@ -1,0 +1,32 @@
+'''create a db account with a unique password'''
+CREATE USER 'ingestion_user'@'localhost' IDENTIFIED BY 'unique_password';
+
+'''grant all privileges to the user'''
+GRANT ALL PRIVILEGES ON *.* TO 'ingestion_user'@'localhost';
+
+'''grant all privileges on the database to the user'''
+GRANT ALL PRIVILEGES ON your_database_name.* TO 'ingestion_user'@'localhost';
+
+'''table crearted'''
+CREATE TABLE Ingested_Data (
+    IOC_Type VARCHAR(36),
+    IOC_Value VARCHAR(50),
+    Date_Detected DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Descript VARCHAR(100),
+    Severity_Level VARCHAR(100),
+    Malware_Category VARCHAR(100),
+    Offense_Count INT 
+);
+
+'''inserted data into the table'''
+INSERT INTO Ingested_Data (IOC_Type, IOC_Value, Date_Detected, Descript, Severity_Level, Malware_Category, Offense_Count)
+VALUES 
+('IP Address', '192.168.1.1', NOW(), 'Phishing attempt', 'High', 'Malware', 5);
+
+'''upload file'''
+LOAD DATA LOCAL INFILE '/home/rmoadmin/Desktop/IOCs_Phishing_Test.xlsx'
+INTO TABLE Ingested_Data
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
