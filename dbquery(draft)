@@ -24,7 +24,7 @@ VALUES
 ('IP Address', '192.168.1.1', NOW(), 'Phishing attempt', 'High', 'Malware', 5);
 
 '''upload file'''
-LOAD DATA LOCAL INFILE '/home/rmoadmin/Desktop/IOCs_Phishing_Test.xlsx'
+LOAD DATA LOCAL INFILE 'pathtofile'
 INTO TABLE Ingested_Data
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
