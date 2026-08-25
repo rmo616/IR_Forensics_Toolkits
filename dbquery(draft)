@@ -28,6 +28,10 @@ VALUES
 Insert Into Ingested_Data (IOC_Type, IOC_Value, Date_Detected, Descript, Severity_Level, Malware_Category, Offense_Count)
 VALUES 
 ('File Hash', 'd41d8cd98f00b204e9800998ecf8427e', NOW(), 'Suspicious file', 'Low', 'Malware', 1);       
+Insert Into Ingested_Data (IOC_Type, IOC_Value, Date_Detected, Descript, Severity_Level, Malware_Category, Offense_Count)
+VALUES 
+('URL', 'http://maliciousurl.com', NOW(), 'Malware download', 'High', 'Malware', 4);    
+
 
 '''upload file'''
 LOAD DATA LOCAL INFILE 'pathtofile'
