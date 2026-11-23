@@ -4,4 +4,6 @@
 - Reconnaissance
 - Virus Scan
 - Remote File Extraction
+- Malicious File Analysis
+- Malware Analysis Metrics
 - And More
